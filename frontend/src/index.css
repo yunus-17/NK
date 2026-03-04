@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nk-olive: #535434;
+  --nk-sand: #C9CAA5;
+  --nk-base: #FDFDF9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  color: #1A1D1A;
+  background-color: var(--nk-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-16 md:py-24;
+  }
+
+  .premium-card {
+    @apply bg-nk-sand/10 backdrop-blur-sm border border-nk-olive/10 shadow-sm rounded-2xl;
+  }
+
+  .olive-gradient-bg {
+    background: linear-gradient(135deg, #535434 0%, #3B3C25 100%);
+  }
+
+  .sand-gradient-bg {
+    background: linear-gradient(135deg, #FDFDF9 0%, #D7D8B6 100%);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #FDFDF9;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(83, 84, 52, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(83, 84, 52, 0.4);
+}
