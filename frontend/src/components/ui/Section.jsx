@@ -5,7 +5,7 @@ import { cn } from '../../lib/utils';
 const Section = ({ title, subtitle, children, className, dark = false }) => {
     return (
         <section className={cn(
-            "py-24 md:py-32 relative overflow-hidden",
+            "py-12 md:py-16 relative overflow-hidden",
             dark ? "olive-gradient-bg text-nk-sand" : "bg-nk-base text-nk-olive",
             className
         )}>

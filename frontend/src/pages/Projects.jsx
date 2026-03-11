@@ -36,7 +36,7 @@ const Projects = () => {
 
     return (
         <div className="bg-nk-base">
-            <section className="olive-gradient-bg py-32 text-center text-nk-sand relative overflow-hidden">
+            <section className="olive-gradient-bg py-20 text-center text-nk-sand relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
                 <div className="section-container relative z-10">
                     <motion.h1

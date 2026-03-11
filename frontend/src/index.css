@@ -13,6 +13,8 @@ body {
   font-family: 'Manrope', sans-serif;
   color: #1A1D1A;
   background-color: var(--nk-base);
+  font-size: 1.125rem;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -31,11 +33,19 @@ body {
 
 @layer components {
   .section-container {
-    @apply max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-16 md:py-24;
+    @apply max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-8 md:py-12;
   }
 
   .premium-card {
-    @apply bg-nk-sand/10 backdrop-blur-sm border border-nk-olive/10 shadow-sm rounded-2xl;
+    @apply bg-nk-sand/10 backdrop-blur-sm border border-nk-olive/10 shadow-sm rounded-none;
+  }
+
+  .bubble-glass {
+    @apply bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl rounded-[2.5rem] transition-all duration-500;
+  }
+
+  .hover-pop {
+    @apply transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-nk-olive/20 hover:bg-white/30;
   }
 
   .olive-gradient-bg {
@@ -43,7 +53,7 @@ body {
   }
 
   .sand-gradient-bg {
-    background: linear-gradient(135deg, #FDFDF9 0%, #D7D8B6 100%);
+    background: linear-gradient(135deg, #E6E1D3 0%, #C9C4A1 100%);
   }
 }
 

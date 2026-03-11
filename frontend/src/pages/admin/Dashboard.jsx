@@ -111,9 +111,9 @@ const AdminDashboard = () => {
                 </header>
 
                 {/* Dashboard Content */}
-                <div className="space-y-12">
+                <div className="space-y-10">
                     {/* Stats Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
                             { label: 'Asset Portfolio', value: stats?.totalProjects || mockStats.totalProjects, trend: '+12%', icon: Briefcase, color: 'bg-nk-olive' },
                             { label: 'Unresolved Inquiries', value: mockStats.unresolvedInquiries, trend: '+5', icon: MessageSquare, color: 'bg-nk-olive-light' },
@@ -124,10 +124,10 @@ const AdminDashboard = () => {
                                 <div className="absolute top-0 right-0 p-6 text-nk-olive/5 group-hover:scale-110 transition-transform">
                                     <stat.icon size={60} />
                                 </div>
-                                <span className="text-nk-olive/40 text-[10px] font-black uppercase tracking-[0.3em] mb-4">{stat.label}</span>
+                                <span className="text-nk-olive/60 text-[11px] font-black uppercase tracking-[0.3em] mb-4">{stat.label}</span>
                                 <div className="flex items-end justify-between relative z-10">
-                                    <h3 className="text-5xl font-heading text-nk-olive-dark leading-none">{stat.value}</h3>
-                                    <span className={`text-[9px] font-black uppercase tracking-widest px-3 py-1.5 ${stat.color} text-nk-sand-light shadow-lg`}>
+                                    <h3 className="text-6xl font-heading text-nk-olive-dark leading-none">{stat.value}</h3>
+                                    <span className={`text-[10px] font-black uppercase tracking-widest px-4 py-2 ${stat.color} text-nk-sand-light shadow-lg`}>
                                         {stat.trend}
                                     </span>
                                 </div>

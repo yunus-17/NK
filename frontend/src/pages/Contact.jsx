@@ -61,10 +61,10 @@ const Contact = () => {
             </section>
 
             <Section>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-24">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
                     {/* Contact Information */}
                     <div className="space-y-12">
-                        <h2 className="text-4xl font-heading text-nk-olive-dark border-b border-nk-olive/10 pb-6">Our Bureaus</h2>
+                        <h2 className="text-4xl md:text-5xl font-heading text-nk-olive-dark border-b border-nk-olive/10 pb-6">Our Bureaus</h2>
 
                         {[
                             {
@@ -80,39 +80,39 @@ const Contact = () => {
                                 email: "pune@nkengineering.com"
                             }
                         ].map((office, i) => (
-                            <div key={i} className="p-10 border border-nk-olive/10 bg-nk-sand/5 hover:bg-white hover:shadow-2xl transition-all duration-700">
-                                <h3 className="text-2xl font-heading text-nk-olive-dark mb-8">{office.title}</h3>
+                            <div key={i} className="bubble-glass p-10 hover:bg-white/40 group">
+                                <h3 className="text-3xl font-heading text-nk-olive-dark mb-8 group-hover:italic transition-all">{office.title}</h3>
                                 <div className="space-y-6">
-                                    <div className="flex items-start space-x-4 text-nk-olive/60">
-                                        <MapPin size={20} className="text-nk-olive shrink-0" />
-                                        <span className="text-sm leading-relaxed">{office.address}</span>
+                                    <div className="flex items-start space-x-4 text-nk-olive/70">
+                                        <MapPin size={24} className="text-nk-olive shrink-0" />
+                                        <span className="text-lg leading-relaxed">{office.address}</span>
                                     </div>
-                                    <div className="flex items-center space-x-4 text-nk-olive/60">
-                                        <Phone size={20} className="text-nk-olive shrink-0" />
-                                        <span className="text-[13px] font-black uppercase tracking-widest">{office.phone}</span>
+                                    <div className="flex items-center space-x-4 text-nk-olive/70">
+                                        <Phone size={24} className="text-nk-olive shrink-0" />
+                                        <span className="text-base font-black uppercase tracking-widest">{office.phone}</span>
                                     </div>
-                                    <div className="flex items-center space-x-4 text-nk-olive/60">
-                                        <Mail size={20} className="text-nk-olive shrink-0" />
-                                        <span className="text-[13px] font-bold underline decoration-nk-olive/20">{office.email}</span>
+                                    <div className="flex items-center space-x-4 text-nk-olive/70">
+                                        <Mail size={24} className="text-nk-olive shrink-0" />
+                                        <span className="text-base font-bold underline decoration-nk-olive/30">{office.email}</span>
                                     </div>
                                 </div>
                             </div>
                         ))}
 
-                        <div className="p-10 bg-nk-olive text-nk-sand shadow-2xl">
-                            <h3 className="text-xs font-black uppercase tracking-[0.3em] mb-8 opacity-60">Consultation Window</h3>
+                        <div className="bubble-glass p-10 text-nk-olive shadow-2xl border-t-8 border-nk-olive bg-nk-khaki-dark/20">
+                            <h3 className="text-sm font-black uppercase tracking-[0.3em] mb-8 opacity-60">Consultation Window</h3>
                             <div className="space-y-5">
-                                <div className="flex justify-between text-xs font-bold uppercase tracking-widest border-b border-nk-sand/10 pb-4">
+                                <div className="flex justify-between text-sm font-bold uppercase tracking-widest border-b border-nk-olive/10 pb-4">
                                     <span>Mon - Fri</span>
-                                    <span className="text-nk-sand-light">09:00 - 18:00</span>
+                                    <span className="text-nk-olive-dark">09:00 - 18:00</span>
                                 </div>
-                                <div className="flex justify-between text-xs font-bold uppercase tracking-widest border-b border-nk-sand/10 pb-4">
+                                <div className="flex justify-between text-sm font-bold uppercase tracking-widest border-b border-nk-olive/10 pb-4">
                                     <span>Saturday</span>
-                                    <span className="text-nk-sand-light">10:00 - 14:00</span>
+                                    <span className="text-nk-olive-dark">10:00 - 14:00</span>
                                 </div>
-                                <div className="flex justify-between text-xs font-black uppercase tracking-widest pt-2">
+                                <div className="flex justify-between text-sm font-black uppercase tracking-widest pt-2">
                                     <span className="opacity-40">Sunday</span>
-                                    <span className="text-nk-sand-light">Closed Bureau</span>
+                                    <span className="text-nk-olive-dark underline italic">Closed Bureau</span>
                                 </div>
                             </div>
                         </div>
@@ -120,36 +120,36 @@ const Contact = () => {
 
                     {/* Contact Form - High End */}
                     <div className="lg:col-span-2">
-                        <div className="bg-white p-16 shadow-2xl border-t-8 border-nk-olive relative">
+                        <div className="bubble-glass p-12 md:p-16 shadow-2xl border-nk-olive/5 relative">
                             <AnimatePresence>
                                 {status === 'success' && (
                                     <motion.div
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.9 }}
-                                        className="absolute inset-0 bg-white/95 backdrop-blur-sm z-50 flex flex-col items-center justify-center text-center p-12"
+                                        className="absolute inset-0 bubble-glass bg-white/95 backdrop-blur-md z-50 flex flex-col items-center justify-center text-center p-12"
                                     >
-                                        <CheckCircle2 size={100} className="text-nk-olive mb-8" />
-                                        <h3 className="text-4xl font-heading text-nk-olive-dark mb-4 italic">Brief Dispatched</h3>
-                                        <p className="text-nk-olive/60 font-body text-lg">Your structural request has been synchronized with our central bureau. A lead engineer will review the narrative shortly.</p>
-                                        <Button variant="outline" className="mt-12" onClick={() => setStatus('idle')}>Update Registry</Button>
+                                        <CheckCircle2 size={120} className="text-nk-olive mb-8" />
+                                        <h3 className="text-5xl font-heading text-nk-olive-dark mb-4 italic">Brief Dispatched</h3>
+                                        <p className="text-nk-olive/70 font-body text-xl">Your structural request has been synchronized with our central bureau. A lead engineer will review the narrative shortly.</p>
+                                        <Button variant="outline" className="mt-12 scale-125" onClick={() => setStatus('idle')}>Update Registry</Button>
                                     </motion.div>
                                 )}
                             </AnimatePresence>
 
-                            <h2 className="text-4xl font-heading text-nk-olive-dark mb-12 flex items-center">
-                                <MessageSquare className="mr-6 text-nk-olive/20" size={32} /> Send a Brief
+                            <h2 className="text-5xl font-heading text-nk-olive-dark mb-12 flex items-center">
+                                <MessageSquare className="mr-6 text-nk-olive/20" size={40} /> Send a Brief
                             </h2>
-                            <form onSubmit={handleSubmit} className="space-y-10">
+                            <form onSubmit={handleSubmit} className="space-y-12">
                                 {status === 'error' && (
                                     <div className="bg-red-50 border-l-4 border-red-500 p-6 flex items-center space-x-6">
                                         <AlertCircle className="text-red-500" size={24} />
-                                        <p className="text-red-700 text-xs font-black uppercase tracking-widest">Communication Failure. Please retry the transmission.</p>
+                                        <p className="text-sm font-black uppercase tracking-widest">Communication Failure. Please retry the transmission.</p>
                                     </div>
                                 )}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                                    <div className="space-y-3">
-                                        <label className="text-[10px] font-black text-nk-olive/40 uppercase tracking-[0.3em] pl-1">Full Nomenclature</label>
+                                    <div className="space-y-4">
+                                        <label className="text-xs font-black text-nk-olive-dark uppercase tracking-[0.3em] pl-1">Full Nomenclature</label>
                                         <input
                                             type="text"
                                             name="name"
@@ -157,11 +157,11 @@ const Contact = () => {
                                             value={formData.name}
                                             onChange={handleChange}
                                             placeholder="e.g. Admiral Johnathan Smith"
-                                            className="w-full bg-nk-sand/5 border-b border-nk-olive/20 py-5 px-4 focus:border-nk-olive focus:bg-white outline-none transition-all"
+                                            className="w-full bg-white/40 border-b-2 border-nk-olive/20 py-6 px-6 text-lg focus:border-nk-olive focus:bg-white outline-none transition-all rounded-xl"
                                         />
                                     </div>
-                                    <div className="space-y-3">
-                                        <label className="text-[10px] font-black text-nk-olive/40 uppercase tracking-[0.3em] pl-1">Email Corridor</label>
+                                    <div className="space-y-4">
+                                        <label className="text-xs font-black text-nk-olive-dark uppercase tracking-[0.3em] pl-1">Email Corridor</label>
                                         <input
                                             type="email"
                                             name="email"
@@ -169,29 +169,29 @@ const Contact = () => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             placeholder="official@domain.com"
-                                            className="w-full bg-nk-sand/5 border-b border-nk-olive/20 py-5 px-4 focus:border-nk-olive focus:bg-white outline-none transition-all"
+                                            className="w-full bg-white/40 border-b-2 border-nk-olive/20 py-6 px-6 text-lg focus:border-nk-olive focus:bg-white outline-none transition-all rounded-xl"
                                         />
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                                    <div className="space-y-3">
-                                        <label className="text-[10px] font-black text-nk-olive/40 uppercase tracking-[0.3em] pl-1">Direct Communication</label>
+                                    <div className="space-y-4">
+                                        <label className="text-xs font-black text-nk-olive-dark uppercase tracking-[0.3em] pl-1">Direct Communication</label>
                                         <input
                                             type="tel"
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleChange}
                                             placeholder="+91 00000 00000"
-                                            className="w-full bg-nk-sand/5 border-b border-nk-olive/20 py-5 px-4 focus:border-nk-olive focus:bg-white outline-none transition-all"
+                                            className="w-full bg-white/40 border-b-2 border-nk-olive/20 py-6 px-6 text-lg focus:border-nk-olive focus:bg-white outline-none transition-all rounded-xl"
                                         />
                                     </div>
-                                    <div className="space-y-3">
-                                        <label className="text-[10px] font-black text-nk-olive/40 uppercase tracking-[0.3em] pl-1">Service Domain</label>
+                                    <div className="space-y-4">
+                                        <label className="text-xs font-black text-nk-olive-dark uppercase tracking-[0.3em] pl-1">Service Domain</label>
                                         <select
                                             name="subject"
                                             value={formData.subject}
                                             onChange={handleChange}
-                                            className="w-full bg-nk-sand/5 border-b border-nk-olive/20 py-5 px-4 focus:border-nk-olive focus:bg-white outline-none transition-all appearance-none cursor-pointer"
+                                            className="w-full bg-white/40 border-b-2 border-nk-olive/20 py-6 px-6 text-lg focus:border-nk-olive focus:bg-white outline-none transition-all appearance-none cursor-pointer rounded-xl"
                                         >
                                             <option>Infrastructure Mastery</option>
                                             <option>Architectural Grandeur</option>
@@ -200,8 +200,8 @@ const Contact = () => {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="space-y-3">
-                                    <label className="text-[10px] font-black text-nk-olive/40 uppercase tracking-[0.3em] pl-1">Detailed Brief</label>
+                                <div className="space-y-4">
+                                    <label className="text-xs font-black text-nk-olive-dark uppercase tracking-[0.3em] pl-1">Detailed Brief</label>
                                     <textarea
                                         name="message"
                                         required
@@ -209,17 +209,17 @@ const Contact = () => {
                                         value={formData.message}
                                         onChange={handleChange}
                                         placeholder="Describe the project scope and royal requirements..."
-                                        className="w-full bg-nk-sand/5 border-b border-nk-olive/20 py-5 px-4 focus:border-nk-olive focus:bg-white outline-none transition-all resize-none"
+                                        className="w-full bg-white/40 border-b-2 border-nk-olive/20 py-6 px-6 text-lg focus:border-nk-olive focus:bg-white outline-none transition-all resize-none rounded-xl"
                                     ></textarea>
                                 </div>
                                 <Button
                                     variant="primary"
                                     type="submit"
                                     disabled={status === 'loading'}
-                                    className="w-full py-6 text-lg hover:shadow-[0_20px_40px_-5px_rgba(83,84,52,0.3)] disabled:opacity-50"
+                                    className="w-full py-8 text-xl hover:shadow-[0_30px_60px_-10px_rgba(83,84,52,0.4)] disabled:opacity-50 scale-105 transition-transform"
                                 >
                                     {status === 'loading' ? 'Encrypting & Dispatching...' : 'Dispatch Brief'}
-                                    {status !== 'loading' && <Send size={20} className="ml-4" />}
+                                    {status !== 'loading' && <Send size={24} className="ml-4" />}
                                 </Button>
                             </form>
                         </div>

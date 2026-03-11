@@ -13,12 +13,20 @@ export default {
                     dark: '#3B3C25',
                 },
                 'nk-sand': {
-                    DEFAULT: '#C9CAA5',
+                    DEFAULT: '#C9C4A1',
                     light: '#D8D9BD',
                     dark: '#AEAF88',
                 },
-                'nk-base': '#FDFDF9', // Warm off-white
+                'nk-khaki-dark': {
+                    DEFAULT: '#BDB699',
+                },
+                'nk-base': '#E6E1D3', // Premium Khaki/Beige
                 'nk-charcoal': '#1A1D1A',
+            },
+            fontSize: {
+                'base': ['1.125rem', { lineHeight: '1.75rem' }],
+                'lg': ['1.25rem', { lineHeight: '2rem' }],
+                'huge': ['1.5rem', { lineHeight: '2.25rem' }],
             },
             fontFamily: {
                 heading: ['"Playfair Display"', 'serif'],

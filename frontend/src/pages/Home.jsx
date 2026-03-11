@@ -81,7 +81,7 @@ const Home = () => {
                             <h1 className="text-6xl md:text-8xl font-heading text-nk-sand-light leading-[1.05] mb-8">
                                 {HERO_SLIDES[currentSlide].title}
                             </h1>
-                            <p className="text-xl text-nk-sand/70 mb-12 leading-relaxed max-w-2xl font-body italic">
+                            <p className="text-xl md:text-2xl text-nk-sand/80 mb-12 leading-relaxed max-w-2xl font-body italic">
                                 {HERO_SLIDES[currentSlide].subtitle}
                             </p>
                             <div className="flex flex-wrap gap-6">
@@ -121,16 +121,16 @@ const Home = () => {
             </section>
 
             {/* Stats Section with Sand Surface */}
-            <section className="bg-nk-sand/95 backdrop-blur-md py-14 border-b border-nk-olive/5 relative z-30 -mt-20 mx-auto max-w-[1500px] rounded-none shadow-2xl flex items-center">
+            <section className="bubble-glass py-12 border border-nk-olive/5 relative z-30 -mt-12 mx-auto max-w-[1600px] shadow-2xl flex items-center bg-white/40 backdrop-blur-2xl">
                 <div className="px-16 w-full grid grid-cols-2 lg:grid-cols-4 gap-12">
                     {STATS.map((stat, index) => (
-                        <div key={index} className="flex flex-col items-start border-l border-nk-olive/10 pl-8 first:border-0">
-                            <div className="text-nk-olive/40 font-ui font-black text-[10px] uppercase tracking-widest mb-4">
+                        <div key={index} className="flex flex-col items-start border-l border-nk-olive/10 pl-10 first:border-0">
+                            <div className="text-nk-olive-light font-ui font-black text-xs uppercase tracking-[0.3em] mb-4">
                                 {stat.label}
                             </div>
-                            <div className="text-5xl font-heading text-nk-olive-dark flex items-baseline">
+                            <div className="text-6xl font-heading text-nk-olive-dark flex items-baseline leading-none">
                                 <CountUp end={stat.value} />
-                                <span className="text-2xl text-nk-olive/50 ml-1">{stat.suffix}</span>
+                                <span className="text-3xl text-nk-olive/40 ml-1">{stat.suffix}</span>
                             </div>
                         </div>
                     ))}
@@ -142,7 +142,7 @@ const Home = () => {
                 subtitle="Our Domain Expertise"
                 title="Royal Standard Engineering Solutions"
             >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {[
                         {
                             title: "Infrastructure Planning",
@@ -160,18 +160,18 @@ const Home = () => {
                             icon: HardHat
                         }
                     ].map((service, i) => (
-                        <Card key={i} className="group hover:bg-nk-olive hover:shadow-2xl hover:shadow-nk-olive/20">
-                            <div className="w-16 h-16 bg-nk-olive/5 group-hover:bg-white/10 rounded-none flex items-center justify-center text-nk-olive group-hover:text-nk-sand mb-8 transition-all duration-500 border border-nk-olive/10 group-hover:border-white/20">
-                                <service.icon size={32} />
+                        <div key={i} className="bubble-glass p-12 hover-pop group">
+                            <div className="w-20 h-20 bg-nk-olive text-nk-sand rounded-3xl flex items-center justify-center mb-10 transition-all duration-500 shadow-xl group-hover:rotate-12 group-hover:scale-110">
+                                <service.icon size={36} />
                             </div>
-                            <h3 className="text-2xl font-heading mb-4 text-nk-olive-dark group-hover:text-nk-sand transition-colors">{service.title}</h3>
-                            <p className="text-nk-olive/70 font-body text-sm leading-relaxed mb-10 group-hover:text-nk-sand/70 transition-colors">
+                            <h3 className="text-3xl font-heading mb-6 text-nk-olive-dark group-hover:italic transition-all">{service.title}</h3>
+                            <p className="text-nk-olive/70 font-body text-lg leading-relaxed mb-10 group-hover:text-nk-olive-dark transition-colors">
                                 {service.desc}
                             </p>
-                            <Link to="/services" className="inline-flex items-center text-xs font-black uppercase tracking-widest text-nk-olive group-hover:text-nk-sand transition-all">
-                                Case Details <ArrowRight size={16} className="ml-3 group-hover:translate-x-2 transition-transform" />
+                            <Link to="/services" className="inline-flex items-center text-xs font-black uppercase tracking-[0.3em] text-nk-olive border-b-2 border-nk-olive/20 pb-1 group-hover:border-nk-olive transition-all">
+                                Case Details <ArrowRight size={18} className="ml-3 group-hover:translate-x-2 transition-transform" />
                             </Link>
-                        </Card>
+                        </div>
                     ))}
                 </div>
             </Section>
@@ -199,17 +199,19 @@ const Home = () => {
                         </div>
                     </motion.div>
 
-                    <div className="space-y-8">
-                        <span className="font-ui font-black text-nk-olive-light tracking-[0.3em] uppercase text-[10px]">The NK Philosophy</span>
-                        <h2 className="text-5xl md:text-6xl font-heading text-nk-olive-dark leading-tight">Elite Infrastructure For Global Leaders</h2>
-                        <p className="text-nk-olive/70 font-body text-lg leading-relaxed">
-                            Founded on the principles of structural integrity and royal commitment, NK Engineering stands as a cornerstone in the Indian consultancy landscape. We deliver more than just technical plans; we deliver legacy.
-                        </p>
-                        <p className="text-nk-olive/70 font-body text-lg leading-relaxed">
-                            Our multidisciplinary team bridges the gap between visionary architectural concepts and rigorous structural reality, ensuring that every project we handle meets the highest global standards.
-                        </p>
+                    <div className="space-y-10">
+                        <span className="font-ui font-black text-nk-olive-light tracking-[0.4em] uppercase text-xs">The NK Philosophy</span>
+                        <h2 className="text-6xl md:text-7xl font-heading text-nk-olive-dark leading-tight">Elite Infrastructure For Global Leaders</h2>
+                        <div className="space-y-8">
+                            <p className="text-nk-olive/80 font-body text-2xl leading-relaxed">
+                                Founded on the principles of structural integrity and royal commitment, NK Engineering stands as a cornerstone in the Indian consultancy landscape.
+                            </p>
+                            <p className="text-nk-olive/70 font-body text-xl leading-relaxed">
+                                Our multidisciplinary team bridges the gap between visionary architectural concepts and rigorous structural reality, ensuring absolute global standards.
+                            </p>
+                        </div>
                         <div className="pt-8">
-                            <Button size="lg" variant="outline" className="border-nk-olive text-nk-olive hover:bg-nk-olive hover:text-nk-sand">
+                            <Button size="huge" variant="outline" className="border-nk-olive text-nk-olive hover:bg-nk-olive hover:text-nk-sand px-16">
                                 Learn our Legacy
                             </Button>
                         </div>
@@ -251,18 +253,18 @@ const Home = () => {
                                 alt={project.title}
                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-nk-olive-dark via-nk-olive-dark/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-nk-charcoal via-nk-charcoal/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
                             <div className="absolute bottom-0 left-0 p-12 text-nk-sand w-full">
-                                <span className="font-ui font-black text-[10px] uppercase tracking-[0.3em] mb-4 block text-nk-sand-light opacity-60">
+                                <span className="font-ui font-black text-xs uppercase tracking-[0.4em] mb-4 block text-nk-sand-light opacity-60">
                                     {project.category}
                                 </span>
-                                <h3 className="text-4xl font-heading mb-6">{project.title}</h3>
-                                <div className="flex items-center justify-between border-t border-nk-sand/20 pt-6">
-                                    <p className="text-nk-sand/50 text-xs flex items-center font-ui uppercase tracking-widest font-bold">
-                                        <MapPin size={14} className="mr-3" /> {project.location}
+                                <h3 className="text-5xl font-heading mb-8">{project.title}</h3>
+                                <div className="flex items-center justify-between border-t border-nk-sand/20 pt-8">
+                                    <p className="text-nk-sand/50 text-sm flex items-center font-ui uppercase tracking-[0.2em] font-bold">
+                                        <MapPin size={18} className="mr-4" /> {project.location}
                                     </p>
-                                    <div className="w-12 h-12 bg-nk-sand text-nk-olive flex items-center justify-center -translate-x-10 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-700">
-                                        <ArrowRight size={24} />
+                                    <div className="w-16 h-16 bg-nk-sand text-nk-olive flex items-center justify-center -translate-x-10 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-700 shadow-2xl">
+                                        <ArrowRight size={32} />
                                     </div>
                                 </div>
                             </div>
@@ -299,16 +301,16 @@ const Home = () => {
                             image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200"
                         }
                     ].map((item, i) => (
-                        <Card key={i} className="flex flex-col h-full bg-nk-sand/10 border-none shadow-none text-center">
-                            <div className="flex-grow mb-10 pt-4">
-                                <p className="text-nk-olive font-body italic text-lg leading-relaxed opacity-80">"{item.content}"</p>
+                        <div key={i} className="bubble-glass p-12 flex flex-col h-full bg-white/40 text-center hover-pop">
+                            <div className="flex-grow mb-12 pt-4">
+                                <p className="text-nk-olive-dark font-body italic text-xl leading-relaxed opacity-90">"{item.content}"</p>
                             </div>
                             <div className="flex flex-col items-center">
-                                <img src={item.image} alt={item.name} className="w-16 h-16 rounded-none object-cover border-2 border-nk-olive mb-4 shadow-xl" />
-                                <h4 className="font-heading text-xl text-nk-olive-dark">{item.name}</h4>
-                                <p className="text-[10px] font-black uppercase tracking-widest text-nk-olive/40 mt-1">{item.role}</p>
+                                <img src={item.image} alt={item.name} className="w-20 h-20 rounded-full object-cover border-4 border-nk-olive/20 mb-6 shadow-2xl" />
+                                <h4 className="font-heading text-2xl text-nk-olive-dark">{item.name}</h4>
+                                <p className="text-xs font-black uppercase tracking-[0.3em] text-nk-olive/50 mt-2">{item.role}</p>
                             </div>
-                        </Card>
+                        </div>
                     ))}
                 </div>
             </Section>
@@ -316,37 +318,37 @@ const Home = () => {
             {/* Final Call - High Impact Premium */}
             <section className="bg-nk-base pt-16 pb-32">
                 <div className="section-container">
-                    <div className="bg-nk-olive p-16 md:p-24 relative overflow-hidden group">
+                    <div className="bubble-glass p-16 md:p-24 relative overflow-hidden group bg-nk-olive text-nk-sand transition-all duration-700 hover:shadow-nk-olive/30 shadow-2xl">
                         <div className="absolute top-0 right-0 w-1/3 h-full bg-nk-sand/5 skew-x-12 translate-x-1/2" />
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div className="space-y-10">
-                                <h2 className="text-5xl md:text-7xl font-heading text-nk-sand-light">Start Your Royal Legacy Project</h2>
-                                <p className="text-nk-sand/60 text-xl font-body italic">
+                                <h2 className="text-6xl md:text-8xl font-heading text-nk-sand-light leading-none">Start Your Royal Legacy Project</h2>
+                                <p className="text-nk-sand/60 text-2xl font-body italic">
                                     Join the league of elite organizations transforming India's infrastructure landscape.
                                 </p>
-                                <div className="flex flex-wrap gap-8 pt-4">
-                                    <div className="flex items-center space-x-4">
-                                        <div className="w-12 h-12 bg-nk-sand/10 text-nk-sand flex items-center justify-center">
-                                            <Phone size={24} />
+                                <div className="flex flex-wrap gap-12 pt-6">
+                                    <div className="flex items-center space-x-6">
+                                        <div className="w-16 h-16 bg-white/10 text-nk-sand flex items-center justify-center rounded-2xl">
+                                            <Phone size={32} />
                                         </div>
                                         <div>
-                                            <p className="text-[10px] font-black uppercase text-nk-sand/40 tracking-widest">Speak to Advisor</p>
-                                            <p className="text-nk-sand text-lg font-bold">+91 123 456 7890</p>
+                                            <p className="text-xs font-black uppercase text-nk-sand/40 tracking-[0.2em] mb-1">Speak to Advisor</p>
+                                            <p className="text-nk-sand text-2xl font-bold">+91 123 456 7890</p>
                                         </div>
                                     </div>
-                                    <div className="flex items-center space-x-4">
-                                        <div className="w-12 h-12 bg-nk-sand/10 text-nk-sand flex items-center justify-center">
-                                            <Mail size={24} />
+                                    <div className="flex items-center space-x-6">
+                                        <div className="w-16 h-16 bg-white/10 text-nk-sand flex items-center justify-center rounded-2xl">
+                                            <Mail size={32} />
                                         </div>
                                         <div>
-                                            <p className="text-[10px] font-black uppercase text-nk-sand/40 tracking-widest">Send Portfolio</p>
-                                            <p className="text-nk-sand text-lg font-bold underline decoration-nk-sand/30">hello@nkengineering.com</p>
+                                            <p className="text-xs font-black uppercase text-nk-sand/40 tracking-[0.2em] mb-1">Send Portfolio</p>
+                                            <p className="text-nk-sand text-2xl font-bold underline decoration-nk-sand/30">hello@nkengineering.com</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="flex justify-center lg:justify-end">
-                                <Button size="lg" variant="secondary" className="px-16 py-8 text-xl shadow-[0_30px_60px_-15px_rgba(215,216,182,0.3)] hover:shadow-nk-sand/40">
+                                <Button size="huge" variant="secondary" className="px-20 py-10 text-2xl shadow-2xl hover:scale-105 transition-transform">
                                     Secure Consultation
                                 </Button>
                             </div>
