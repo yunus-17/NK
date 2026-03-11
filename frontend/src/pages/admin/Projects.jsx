@@ -3,6 +3,7 @@ import AdminSidebar from '../../components/admin/AdminSidebar';
 import { Plus, Edit2, Trash2, Search, Filter, MoreHorizontal, X } from 'lucide-react';
 import Button from '../../components/ui/Button';
 import { motion, AnimatePresence } from 'framer-motion';
+import { API } from '../../lib/utils';
 
 const AdminProjects = () => {
     const [projects, setProjects] = useState([]);
@@ -20,7 +21,7 @@ const AdminProjects = () => {
 
     const fetchProjects = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/projects');
+            const res = await fetch(`${API}/projects`);
             const data = await res.json();
             setProjects(data);
         } catch (error) {
@@ -57,8 +58,8 @@ const AdminProjects = () => {
         const token = localStorage.getItem('adminToken');
         const method = editingProject ? 'PUT' : 'POST';
         const url = editingProject
-            ? `http://localhost:5000/api/projects/${editingProject._id}`
-            : 'http://localhost:5000/api/projects';
+            ? `${API}/projects/${editingProject._id}`
+            : `${API}/projects`;
 
         try {
             const res = await fetch(url, {
@@ -83,7 +84,7 @@ const AdminProjects = () => {
         if (!confirm('Are you sure you want to delete this project?')) return;
         const token = localStorage.getItem('adminToken');
         try {
-            const res = await fetch(`http://localhost:5000/api/projects/${id}`, {
+            const res = await fetch(`${API}/projects/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });

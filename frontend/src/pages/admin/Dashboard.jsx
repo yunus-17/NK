@@ -3,6 +3,7 @@ import AdminSidebar from '../../components/admin/AdminSidebar';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Bell, Search, MessageSquare, Briefcase, Award, TrendingUp, Download, CheckCircle, FileText } from 'lucide-react';
+import { API } from '../../lib/utils';
 
 const AdminDashboard = () => {
     const [stats, setStats] = useState({
@@ -37,8 +38,8 @@ const AdminDashboard = () => {
                 const headers = { 'Authorization': `Bearer ${token}` };
 
                 const [statsRes, projectsRes] = await Promise.all([
-                    fetch('http://localhost:5000/api/projects/stats', { headers }),
-                    fetch('http://localhost:5000/api/projects', { headers })
+                    fetch(`${API}/projects/stats`, { headers }),
+                    fetch(`${API}/projects`, { headers })
                 ]);
 
                 if (statsRes.ok && projectsRes.ok) {

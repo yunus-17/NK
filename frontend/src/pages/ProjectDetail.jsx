@@ -5,6 +5,7 @@ import { ArrowLeft, MapPin, Calendar, Wallet, CheckCircle2, Info, LayoutDashboar
 import Section from '../components/ui/Section';
 import Button from '../components/ui/Button';
 import BeforeAfterSlider from '../components/ui/BeforeAfterSlider';
+import { API } from '../lib/utils';
 
 const ProjectDetail = () => {
     const { id } = useParams();
@@ -14,7 +15,7 @@ const ProjectDetail = () => {
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/projects/${id}`);
+                const response = await fetch(`${API}/projects/${id}`);
                 const data = await response.json();
                 if (response.ok) {
                     setProject(data);

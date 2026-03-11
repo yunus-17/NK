@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, MessageSquare, Send, CheckCircle2, AlertCircle } f
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import { API } from '../lib/utils';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ const Contact = () => {
         setStatus('loading');
 
         try {
-            const response = await fetch('http://localhost:5000/api/enquiries', {
+            const response = await fetch(`${API}/enquiries`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)

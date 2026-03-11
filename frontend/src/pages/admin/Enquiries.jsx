@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AdminSidebar from '../../components/admin/AdminSidebar';
 import { Mail, Phone, Calendar, CheckCircle, Reply, Trash2, Search } from 'lucide-react';
+import { API } from '../../lib/utils';
 
 const AdminEnquiries = () => {
     const [enquiries, setEnquiries] = useState([]);
@@ -16,8 +17,8 @@ const AdminEnquiries = () => {
             const headers = { 'Authorization': `Bearer ${token}` };
 
             const [enquiriesRes, statsRes] = await Promise.all([
-                fetch('http://localhost:5000/api/enquiries', { headers }),
-                fetch('http://localhost:5000/api/enquiries/stats', { headers })
+                fetch(`${API}/enquiries`, { headers }),
+                fetch(`${API}/enquiries/stats`, { headers })
             ]);
 
             if (enquiriesRes.ok && statsRes.ok) {
@@ -42,7 +43,7 @@ const AdminEnquiries = () => {
 
         try {
             const token = localStorage.getItem('adminToken');
-            const response = await fetch(`http://localhost:5000/api/enquiries/${selectedEnquiry._id}/reply`, {
+            const response = await fetch(`${API}/enquiries/${selectedEnquiry._id}/reply`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -141,7 +142,7 @@ const AdminEnquiries = () => {
                                             onClick={async () => {
                                                 if (confirm('Delete this enquiry permanently?')) {
                                                     const token = localStorage.getItem('adminToken');
-                                                    await fetch(`http://localhost:5000/api/enquiries/${selectedEnquiry._id}`, {
+                                                    await fetch(`${API}/enquiries/${selectedEnquiry._id}`, {
                                                         method: 'DELETE',
                                                         headers: { 'Authorization': `Bearer ${token}` }
                                                     });

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, ArrowRight } from 'lucide-react';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
+import { API } from '../lib/utils';
 
 const CATEGORIES = ['All', 'Infrastructure', 'Architecture', 'Consultancy', 'Industrial'];
 
@@ -15,7 +16,7 @@ const Projects = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/projects');
+                const response = await fetch(`${API}/projects`);
                 const data = await response.json();
                 if (response.ok) {
                     setProjects(data);

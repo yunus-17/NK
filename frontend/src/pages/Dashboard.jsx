@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Briefcase, MapPin, ExternalLink, User, LayoutDashboard, Search, Bell } from 'lucide-react';
 import Section from '../components/ui/Section';
+import { API } from '../lib/utils';
 
 const UserDashboard = () => {
     const [projects, setProjects] = useState([]);
@@ -12,7 +13,7 @@ const UserDashboard = () => {
         setUserName(localStorage.getItem('userName') || 'Client');
         const fetchProjects = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/projects');
+                const response = await fetch(`${API}/projects`);
                 const data = await response.json();
                 if (response.ok) {
                     setProjects(data);
