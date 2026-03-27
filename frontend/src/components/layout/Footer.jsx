@@ -80,15 +80,16 @@ const Footer = () => {
                         <div className="space-y-6">
                             <div className="flex items-start space-x-4 text-sm text-nk-sand/60">
                                 <MapPin size={20} className="text-nk-sand mt-0.5 shrink-0" />
-                                <span className="font-body leading-relaxed">123 Engineering Way, <br />BKC, Mumbai, India 400051</span>
+                                <span className="font-body leading-relaxed">256C Tiruchengodu Road,<br/>Namakkal</span>
+
                             </div>
                             <div className="flex items-center space-x-4 text-sm text-nk-sand/60">
                                 <Phone size={20} className="text-nk-sand shrink-0" />
-                                <span className="font-body">+91 123 456 7890</span>
+                                <span className="font-body">+91 8807783199</span>
                             </div>
                             <div className="flex items-center space-x-4 text-sm text-nk-sand/60">
                                 <Mail size={20} className="text-nk-sand shrink-0" />
-                                <span className="font-body underline decoration-nk-sand/30">concierge@nkengineering.com</span>
+                                <span className="font-body underline decoration-nk-sand/30">nkenggconstruction@gmail.com</span>
                             </div>
                         </div>
                     </div>

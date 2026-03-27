@@ -46,24 +46,18 @@ const Header = () => {
                 <div className="section-container !py-0 flex justify-between items-center text-[10px] font-bold tracking-[0.1em] uppercase">
                     <div className="flex items-center space-x-8">
                         <div className="flex items-center space-x-2">
-                            <Phone size={12} className="text-nk-sand" />
-                            <span>+91 123 456 7890</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
                             <Mail size={12} className="text-nk-sand" />
-                            <span>info@nkengineering.com</span>
+                            <span>nkenggconstruction@gmail.com</span>
                         </div>
+                        
                     </div>
-                    <div className="flex items-center space-x-6">
+                     <div className="flex items-center space-x-8">
                         <div className="flex items-center space-x-2">
-                            <Clock size={12} className="text-nk-sand" />
-                            <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
+                            <Phone size={12} className="text-nk-sand" />
+                            <span>+91 7373754099</span>
+                            <span>+91 8807783199</span>
                         </div>
-                        <div className="w-px h-3 bg-white/10 mx-2" />
-                        <Link to="/admin/login" className="hover:text-nk-sand transition-colors flex items-center space-x-2 group">
-                            <Shield size={12} className="text-nk-sand/40 group-hover:text-nk-sand" />
-                            <span>Portal Access</span>
-                        </Link>
+                        
                     </div>
                 </div>
             </div>
@@ -83,7 +77,7 @@ const Header = () => {
                         </div>
                         <div className="flex flex-col">
                             <span className="text-nk-olive font-heading text-2xl leading-none tracking-tight">NK ENGINEERING</span>
-                            <span className="text-nk-olive-light text-[10px] tracking-[0.3em] font-black uppercase mt-1">CONSULTANCY</span>
+                            <span className="text-nk-olive-light text-[10px] tracking-[0.3em] font-black uppercase mt-1"></span>
                         </div>
                     </Link>
 

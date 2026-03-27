@@ -67,7 +67,7 @@ const About = () => {
                     >
                         <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
                             <img
-                                src="src/images/nk4.jpg"
+                                src="\src\images\attachments\nk5.jpg"
                                 alt="Founding Principles"
                                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                             />

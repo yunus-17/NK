@@ -11,13 +11,9 @@ const HERO_SLIDES = [
     {
         image: "src/images/nk1.jpg",
         title: "Engineering Excellence for a Better Tomorrow",
-        subtitle: "Premium consultancy services for world-class infrastructure and urban development.",
+        subtitle: "Premium  services for world-class infrastructure and urban development.",
     },
-    {
-        image: "src/images/nk3.jpg",
-        title: "Innovative Architectural Solutions",
-        subtitle: "Merging aesthetic brilliance with structural integrity and royal standards.",
-    },
+   
     {
         image: "src/images/nk4.jpg",
         title: "Global Expertise, Local Knowledge",
@@ -26,10 +22,10 @@ const HERO_SLIDES = [
 ];
 
 const STATS = [
-    { label: "Completed Projects", value: 250, suffix: "+", icon: Building2 },
-    { label: "Sq. Ft. Managed", value: 15, suffix: "M+", icon: Ruler },
-    { label: "Years of Legacy", value: 25, suffix: "+", icon: Award },
-    { label: "Professional Experts", value: 120, suffix: "+", icon: Users },
+    { label: "Completed Projects", value: 15, suffix: "+", icon: Building2 },
+    { label: "Sq. Ft. Managed", value: 5, suffix: "+", icon: Ruler },
+    { label: "Years of Legacy", value: 3, suffix: "+", icon: Award },
+    { label: "Professional Experts", value: 25, suffix: "+", icon: Users },
 ];
 
 const Home = () => {
@@ -76,7 +72,7 @@ const Home = () => {
                             transition={{ duration: 1, delay: 0.3 }}
                         >
                             <span className="font-ui font-black text-nk-sand tracking-[0.4em] uppercase text-xs mb-8 block">
-                                Professional Engineering Consultancy
+                                Professional Engineering
                             </span>
                             <h1 className="text-6xl md:text-8xl font-heading text-nk-sand-light leading-[1.05] mb-8">
                                 {HERO_SLIDES[currentSlide].title}
@@ -219,7 +215,7 @@ const Home = () => {
                 </div>
             </Section>
 
-            {/* Projects Preview - Dark Royal Mode */}
+            {/* Projects Preview - Dark Royal Mode *
             <Section
                 title="Works of Architectural Honor"
                 subtitle="Recent Engagements"
@@ -278,7 +274,7 @@ const Home = () => {
                 </div>
             </Section>
 
-            {/* Testimonials - Elite Voice */}
+            {/* Testimonials - Elite Voice 
             <Section subtitle="Client Testimonials" title="Recognition of Excellence">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {[
@@ -313,7 +309,7 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-            </Section>
+            </Section>*/}   
 
             {/* Final Call - High Impact Premium */}
             <section className="bg-nk-base pt-16 pb-32">
@@ -333,7 +329,7 @@ const Home = () => {
                                         </div>
                                         <div>
                                             <p className="text-xs font-black uppercase text-nk-sand/40 tracking-[0.2em] mb-1">Speak to Advisor</p>
-                                            <p className="text-nk-sand text-2xl font-bold">+91 123 456 7890</p>
+                                            <p className="text-nk-sand text-2xl font-bold">+91 8807783199  </p>
                                         </div>
                                     </div>
                                     <div className="flex items-center space-x-6">
@@ -342,7 +338,7 @@ const Home = () => {
                                         </div>
                                         <div>
                                             <p className="text-xs font-black uppercase text-nk-sand/40 tracking-[0.2em] mb-1">Send Portfolio</p>
-                                            <p className="text-nk-sand text-2xl font-bold underline decoration-nk-sand/30">hello@nkengineering.com</p>
+                                            <p className="text-nk-sand text-2xl font-bold underline decoration-nk-sand/30">nkenggconstruction@gmail.com</p>
                                         </div>
                                     </div>
                                 </div>
