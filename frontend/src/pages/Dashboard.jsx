@@ -3,11 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Briefcase, MapPin, ExternalLink, User, LayoutDashboard, Search, Bell } from 'lucide-react';
 import Section from '../components/ui/Section';
 import { API } from '../lib/utils';
+import projectImage1 from '../images/attachments/p1.jpg';
+import projectImage2 from '../images/attachments/p2.jpg';
 
 const UserDashboard = () => {
     const [projects, setProjects] = useState([]);
     const [userName, setUserName] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const fallbackProjectImages = [projectImage1, projectImage2];
 
     useEffect(() => {
         setUserName(localStorage.getItem('userName') || 'Client');
@@ -109,7 +112,10 @@ const UserDashboard = () => {
                                     <div key={i} className="h-[550px] bubble-glass animate-pulse" />
                                 ))
                             ) : projects.length > 0 ? (
-                                projects.map((p, idx) => (
+                                projects.map((p, idx) => {
+                                    const cardImage = p.image?.trim() || fallbackProjectImages[idx % fallbackProjectImages.length];
+
+                                    return (
                                     <motion.div
                                         key={p._id}
                                         initial={{ opacity: 0, y: 30 }}
@@ -119,9 +125,9 @@ const UserDashboard = () => {
                                     >
                                         {/* Image Section */}
                                         <div className="h-3/5 relative overflow-hidden">
-                                            {p.image ? (
+                                            {cardImage ? (
                                                 <img
-                                                    src={p.image}
+                                                    src={cardImage}
                                                     alt={p.title}
                                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                                 />
@@ -160,7 +166,7 @@ const UserDashboard = () => {
                                             </div>
                                         </div>
                                     </motion.div>
-                                ))
+                                )})
                             ) : (
                                 <div className="col-span-full py-40 flex flex-col items-center justify-center bubble-glass border-4 border-dashed border-nk-olive/10">
                                     <LayoutDashboard size={80} className="text-nk-olive/10 mb-10" />

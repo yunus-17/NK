@@ -12,9 +12,6 @@ const navLinks = [
         path: '/services',
         dropdown: [
             { name: 'Infrastructure', path: '/services/infrastructure' },
-            { name: 'Architecture', path: '/services/architecture' },
-            { name: 'Consultancy', path: '/services/consultancy' },
-            { name: 'Project Management', path: '/services/pmc' },
         ]
     },
     { name: 'Projects', path: '/projects' },
@@ -94,7 +91,7 @@ const Header = () => {
                                     to={link.path}
                                     className={cn(
                                         "flex items-center space-x-1 text-xs font-bold uppercase tracking-[0.15em] transition-all py-2",
-                                        location.pathname === link.path
+                                        location.pathname === link.path || (link.path === '/services' && location.pathname.startsWith('/services/'))
                                             ? "text-nk-olive border-b-2 border-nk-olive"
                                             : "text-nk-olive/60 hover:text-nk-olive"
                                     )}

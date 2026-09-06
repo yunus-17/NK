@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Building2, Ruler, HardHat, ShieldCheck, Factory, Zap, ArrowRight } from 'lucide-react';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
+import architectureImage from '../images/nk3.jpg';
 
 const SERVICES = [
     {
@@ -18,7 +19,7 @@ const SERVICES = [
         title: 'Architectural Excellence',
         desc: 'Timeless architectural narratives that merge aesthetic brilliance with unyielding structural integrity.',
         icon: Ruler,
-        image: 'https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=800'
+        image: architectureImage
     },
     {
         id: 'pmc',

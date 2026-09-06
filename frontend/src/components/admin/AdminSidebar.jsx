@@ -20,8 +20,7 @@ const AdminSidebar = () => {
                     <Shield size={20} />
                 </div>
                 <div>
-                    <h2 className="text-sm font-black tracking-[0.2em] leading-none uppercase text-nk-sand-light">NK COMMAND</h2>
-                    <span className="text-[9px] text-nk-sand/30 uppercase tracking-[0.4em] font-black mt-1 block">Elite Admin</span>
+                    <h2 className="text-sm font-black tracking-[0.2em] leading-none uppercase text-nk-sand-light">NK ADMIN</h2>
                 </div>
             </div>
 

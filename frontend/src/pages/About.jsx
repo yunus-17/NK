@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { Shield, Target, Eye, Users, Award, CheckCircle2 } from 'lucide-react';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
+import founderImage from '../images/attachments/d.jpg';
+import legacyImage from '../images/attachments/nk5.jpg';
+import sekarImage from '../images/s.jpg';
 
 const About = () => {
     return (
@@ -49,11 +52,11 @@ const About = () => {
                         </div>
                         <div className="grid grid-cols-2 gap-8 pt-10">
                             <div className="bubble-glass p-8">
-                                <p className="text-4xl font-heading text-nk-olive-dark mb-2">250+</p>
+                                <p className="text-4xl font-heading text-nk-olive-dark mb-2">15</p>
                                 <p className="text-xs font-black uppercase tracking-widest text-nk-olive/40">Landmarks Built</p>
                             </div>
                             <div className="bubble-glass p-8">
-                                <p className="text-4xl font-heading text-nk-olive-dark mb-2">15M+</p>
+                                <p className="text-4xl font-heading text-nk-olive-dark mb-2">5M+</p>
                                 <p className="text-xs font-black uppercase tracking-widest text-nk-olive/40">Sq. Ft. Managed</p>
                             </div>
                         </div>
@@ -67,13 +70,13 @@ const About = () => {
                     >
                         <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
                             <img
-                                src="\src\images\attachments\nk5.jpg"
+                                src={legacyImage}
                                 alt="Founding Principles"
                                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
                             />
                         </div>
                         <div className="absolute -bottom-10 -left-10 bubble-glass p-12 shadow-2xl bg-nk-olive text-nk-sand border-t-8 border-nk-sand/20">
-                            <p className="text-7xl font-heading leading-none mb-2">98'</p>
+                            <p className="text-7xl font-heading leading-none mb-2">23'</p>
                             <p className="text-xs font-black uppercase tracking-[0.4em] opacity-60">Established Legacy</p>
                         </div>
                     </motion.div>
@@ -111,20 +114,16 @@ const About = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
                     {[
                         {
-                            name: "Nirmal Kapoor",
+                            name: "Sekar",
                             role: "Founder & Chairman",
-                            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+                            image: sekarImage
                         },
                         {
-                            name: "Vikram Singhania",
+                            name: "Dinesh Kumar",
                             role: "Chief Executive Officer",
-                            image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400"
+                            image: founderImage
                         },
-                        {
-                            name: "Meera Deshmukh",
-                            role: "Director of Operations",
-                            image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
-                        }
+                        
                     ].map((m, i) => (
                         <div key={i} className="group relative">
                             <div className="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-1000 border border-nk-olive/10">

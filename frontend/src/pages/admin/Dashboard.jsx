@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Bell, Search, MessageSquare, Briefcase, Award, TrendingUp, Download, CheckCircle, FileText } from 'lucide-react';
 import { API } from '../../lib/utils';
+import projectImage1 from '../../images/attachments/p1.jpg';
+import projectImage2 from '../../images/attachments/p2.jpg';
 
 const AdminDashboard = () => {
     const [stats, setStats] = useState({
@@ -14,6 +16,7 @@ const AdminDashboard = () => {
     });
     const [recentProjects, setRecentProjects] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const fallbackAssetImages = [projectImage1, projectImage2];
 
     // High-Fidelity Mock Data for empty states/fallbacks
     const mockProjects = [
@@ -153,6 +156,7 @@ const AdminDashboard = () => {
                                 <table className="w-full">
                                     <thead className="bg-nk-olive/5 text-[10px] text-nk-olive/40 uppercase font-black tracking-[0.2em] text-left">
                                         <tr>
+                                            <th className="px-10 py-6">Preview</th>
                                             <th className="px-10 py-6">Nomenclature</th>
                                             <th className="px-10 py-6">Domain Status</th>
                                             <th className="px-10 py-6">Asset Valuation</th>
@@ -161,6 +165,13 @@ const AdminDashboard = () => {
                                     <tbody className="text-xs">
                                         {displayProjects.map((row, i) => (
                                             <tr key={i} className="border-b border-nk-olive/5 last:border-0 hover:bg-nk-sand/5 transition-all group">
+                                                <td className="px-10 py-6">
+                                                    <img
+                                                        src={row.image?.trim() || fallbackAssetImages[i % fallbackAssetImages.length]}
+                                                        alt={row.title}
+                                                        className="w-20 h-14 object-cover border border-nk-olive/10 shadow-sm"
+                                                    />
+                                                </td>
                                                 <td className="px-10 py-8">
                                                     <div className="font-bold text-nk-olive-dark group-hover:translate-x-2 transition-transform duration-300">
                                                         {row.title}

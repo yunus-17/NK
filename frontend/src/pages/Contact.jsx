@@ -70,16 +70,11 @@ const Contact = () => {
                         {[
                             {
                                 title: "Corporate Headquarters",
-                                address: "123 Engineering Way, BKC, Mumbai, MH 400051",
-                                phone: "+91 22 1234 5678",
-                                email: "mumbai@nkengineering.com"
-                            },
-                            {
-                                title: "Regional Operations - Pune",
-                                address: "45 Tech Park, Viman Nagar, Pune, MH 411014",
-                                phone: "+91 20 8765 4321",
-                                email: "pune@nkengineering.com"
+                                address: "256C Tiruchengodu Road,Namakkal",
+                                phone: "+91 8807783199",
+                                email: "nkenggconstruction@gmail.com"
                             }
+                            
                         ].map((office, i) => (
                             <div key={i} className="bubble-glass p-10 hover:bg-white/40 group">
                                 <h3 className="text-3xl font-heading text-nk-olive-dark mb-8 group-hover:italic transition-all">{office.title}</h3>

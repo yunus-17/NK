@@ -1,17 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MapPin, ArrowRight } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import Section from '../components/ui/Section';
 import Card from '../components/ui/Card';
 import { API } from '../lib/utils';
-
-const CATEGORIES = ['All', 'Infrastructure', 'Architecture', 'Consultancy', 'Industrial'];
+import projectImage1 from '../images/attachments/p1.jpg';
+import projectImage2 from '../images/attachments/p2.jpg';
 
 const Projects = () => {
-    const [projects, setProjects] = useState([]);
-    const [activeCategory, setActiveCategory] = useState('All');
-    const [isLoading, setIsLoading] = useState(true);
+    const fallbackProjectImages = [
+        projectImage1,
+        projectImage2,
+        'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&q=80&w=1200'
+    ];
+    const sampleProjects = [
+        {
+            _id: 'salem-steel-logistics-park',
+            title: 'Salem Steel Logistics Park',
+            category: 'Industrial Infrastructure',
+            location: 'Salem, Tamil Nadu',
+            status: 'Completed'
+        },
+        {
+            _id: 'coimbatore-textile-campus',
+            title: 'Coimbatore Textile Campus',
+            category: 'Advanced Manufacturing',
+            location: 'Coimbatore, Tamil Nadu',
+            status: 'Ongoing'
+        },
+        {
+            _id: 'kochi-marine-terminal',
+            title: 'Kochi Marine Terminal',
+            category: 'Port & Marine Works',
+            location: 'Kochi, Kerala',
+            status: 'Completed'
+        }
+    ];
+    const [projects, setProjects] = useState(sampleProjects);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchProjects = async () => {
@@ -19,10 +46,13 @@ const Projects = () => {
                 const response = await fetch(`${API}/projects`);
                 const data = await response.json();
                 if (response.ok) {
-                    setProjects(data);
+                    setProjects(data.length > 0 ? data : sampleProjects);
+                } else {
+                    setProjects(sampleProjects);
                 }
             } catch (error) {
                 console.error('Error fetching projects:', error);
+                setProjects(sampleProjects);
             } finally {
                 setIsLoading(false);
             }
@@ -30,10 +60,6 @@ const Projects = () => {
 
         fetchProjects();
     }, []);
-
-    const filteredProjects = activeCategory === 'All'
-        ? projects
-        : projects.filter(p => p.category === activeCategory);
 
     return (
         <div className="bg-nk-base">
@@ -47,21 +73,6 @@ const Projects = () => {
                     >
                         The Portfolio
                     </motion.h1>
-
-                    <div className="flex flex-wrap justify-center gap-8">
-                        {CATEGORIES.map(cat => (
-                            <button
-                                key={cat}
-                                onClick={() => setActiveCategory(cat)}
-                                className={`text-[10px] font-black uppercase tracking-[0.3em] transition-all pb-2 border-b-2 ${activeCategory === cat
-                                    ? 'border-nk-sand text-nk-sand-light'
-                                    : 'border-transparent text-nk-sand/30 hover:text-nk-sand'
-                                    }`}
-                            >
-                                {cat}
-                            </button>
-                        ))}
-                    </div>
                 </div>
             </section>
 
@@ -72,7 +83,10 @@ const Projects = () => {
                             Array(3).fill(0).map((_, i) => (
                                 <div key={i} className="h-[500px] bg-nk-olive/5 animate-pulse" />
                             ))
-                        ) : filteredProjects.length > 0 ? filteredProjects.map((p) => (
+                        ) : projects.length > 0 ? projects.map((p, index) => {
+                            const cardImage = p.image?.trim() || fallbackProjectImages[index];
+
+                            return (
                             <motion.div
                                 key={p._id}
                                 layout
@@ -83,9 +97,9 @@ const Projects = () => {
                             >
                                 <Card className="p-0 border-none group overflow-hidden bg-transparent shadow-none">
                                     <Link to={`/projects/${p._id}`} className="block h-[450px] overflow-hidden relative">
-                                        {p.image ? (
+                                        {cardImage ? (
                                             <img
-                                                src={p.image}
+                                                src={cardImage}
                                                 alt={p.title}
                                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                                             />
@@ -105,21 +119,16 @@ const Projects = () => {
                                         </div>
                                     </Link>
                                     <div className="py-10 flex flex-col items-center text-center">
-                                        <h3 className="text-3xl font-heading text-nk-olive-dark mb-4 group-hover:text-nk-olive transition-colors">{p.title}</h3>
+                                        <h3 className="text-3xl font-heading text-nk-olive-dark mb-4 group-hover:text-nk-olive transition-colors">
+                                            {p.title?.trim().toLowerCase() === 'nk engineering' ? 'Govt School' : p.title}
+                                        </h3>
                                         <p className="text-nk-olive/40 text-[10px] font-black uppercase tracking-[0.2em] flex items-center mb-8">
                                             <MapPin size={12} className="mr-3" /> {p.location}
                                         </p>
-                                        <Link
-                                            to={`/projects/${p._id}`}
-                                            className="text-xs font-black uppercase tracking-[0.3em] text-nk-olive-light relative group/link inline-block"
-                                        >
-                                            Examine Project
-                                            <span className="block w-0 h-0.5 bg-nk-olive-light mt-2 transition-all group-hover/link:w-full" />
-                                        </Link>
                                     </div>
                                 </Card>
                             </motion.div>
-                        )) : (
+                        )}) : (
                             <div className="col-span-full py-20 text-center border-2 border-dashed border-nk-olive/10">
                                 <p className="text-nk-olive/40 font-heading text-2xl italic">No architectural records found in this sequence.</p>
                             </div>
